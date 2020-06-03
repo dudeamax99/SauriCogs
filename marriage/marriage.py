@@ -58,7 +58,6 @@ class Marriage(Cog):
             multi=False,
             shit={
                 "flirt": [5, 0],
-                "fuck": [15, 0],
                 "dinner": [15, 0],
                 "date": [10, 0],
                 "flower": [5, 5],
@@ -154,7 +153,6 @@ class Marriage(Cog):
         !!! Remember that starting point for everyone is 100 == happy and satisfied, 0 == leave their spouse"""
         available = [
             "flirt",
-            "fuck",
             "dinner",
             "date",
             "flower",
@@ -184,7 +182,6 @@ class Marriage(Cog):
         """Set the action's/gift's price"""
         available = [
             "flirt",
-            "fuck",
             "dinner",
             "date",
             "flower",
@@ -598,8 +595,6 @@ class Marriage(Cog):
             endtext = (
                 f":heart_eyes: {ctx.author.mention} is flirting with {member.mention}"
             )
-        elif action == "fuck":
-            consent = 0
         elif action == "dinner":
             endtext = (
                 f":ramen: {ctx.author.mention} took {member.mention} on a fancy dinner"
@@ -627,7 +622,7 @@ class Marriage(Cog):
             )
         else:
             return await ctx.send(
-                "Available actions are: `flirt`, `fuck`, `dinner`, `date`, and `gift`"
+                "Available actions are: `flirt`, `dinner`, `date`, and `gift`"
             )
         if action == "gift":
             author_gift = await mc(ctx.author).gifts.get_raw(item)
